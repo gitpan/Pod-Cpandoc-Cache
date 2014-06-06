@@ -28,7 +28,7 @@ no_index:
 provides:
   Pod::Cpandoc::Cache:
     file: lib/Pod/Cpandoc/Cache.pm
-    version: '0.01'
+    version: '0.02'
 requires:
   Class::Method::Modifiers: '0'
   Pod::Cpandoc: '0'
@@ -38,7 +38,7 @@ resources:
   bugtracker: https://github.com/tokubass/p5-Pod-Cpandoc-Cache/issues
   homepage: https://github.com/tokubass/p5-Pod-Cpandoc-Cache
   repository: git://github.com/tokubass/p5-Pod-Cpandoc-Cache.git
-version: '0.01'
+version: '0.02'
 x_authority: cpan:TOKUBASS
 x_contributors:
   - 'tokubass <tokubass@cpan.org>'
