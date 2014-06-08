@@ -45,6 +45,7 @@
             "Class::Method::Modifiers" : "0",
             "Pod::Cpandoc" : "0",
             "Time::Piece" : "1.16",
+            "parent" : "0",
             "perl" : "5.008005"
          }
       },
@@ -59,7 +60,7 @@
    "provides" : {
       "Pod::Cpandoc::Cache" : {
          "file" : "lib/Pod/Cpandoc/Cache.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       }
    },
    "release_status" : "stable",
@@ -73,7 +74,7 @@
          "web" : "https://github.com/tokubass/p5-Pod-Cpandoc-Cache"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_authority" : "cpan:TOKUBASS",
    "x_contributors" : [
       "tokubass <tokubass@cpan.org>"

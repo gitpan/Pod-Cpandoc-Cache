@@ -9,5 +9,6 @@ minil.toml
 script/ccpandoc
 t/00_compile.t
 t/01_basic.t
+t/02_opt_c.t
 META.yml
 MANIFEST

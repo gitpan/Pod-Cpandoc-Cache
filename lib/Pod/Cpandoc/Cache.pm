@@ -3,15 +3,16 @@ use 5.008005;
 use strict;
 use warnings;
 use Carp;
+use Data::Dumper;
 use parent 'Pod::Cpandoc';
 use File::Spec::Functions qw(catfile catdir);
 use File::Basename qw(dirname);
-use File::Path qw(mkpath);
+use File::Path qw(make_path);
 use File::Copy;
 use Class::Method::Modifiers;
 use Time::Piece 1.16;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 use constant DEBUG => $ENV{POD_CPANDOC_CACHE_DEBUG};
 use constant TTL => 3600*24;
 
@@ -82,7 +83,7 @@ sub is_tempfile {
     my $module_name = shift;
 
     my $hyphenated_module_name = join '-' => split('::',$module_name);
-    $file_name =~ /${hyphenated_module_name}-[a-zA-Z0-9]{4}\.(pm|txt)\z/;
+    $file_name =~ /${hyphenated_module_name}-[a-zA-Z0-9_]{4}\.(pm|txt)\z/;
 }
 
 sub cache_root_dir {
@@ -106,7 +107,11 @@ sub put_cache_file {
     if ($self->is_tempfile($tempfile_name,$module_name)) {
         my $path = $self->module_name_to_path($module_name);
         warn "put cache file: $path" if DEBUG;
-        mkpath(dirname($path));
+
+        my $errors = [];
+        make_path(dirname($path),{ error => \$errors });
+        croak Dumper $errors if @$errors;
+
         copy($tempfile_name,$path) or die "Copy failed: $!";
     }
 }
